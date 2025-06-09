@@ -1,10 +1,68 @@
-<html>
+<!DOCTYLE html> 
+<html lang="pt-br">
 <head>
-<title>meu site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo da Tabela Periódica</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<h1>Site</h1>
-<p>está tudo bem realista, mas não será como o meu site</p>
-<a> href="https://google.com" target="_black" </a>
+  <div class="container">
+    <h1>Jogo da Tabela Periódica</h1>
+    <p>Qual é o símbolo do elemento:</p>
+    <h2 id="element-name">...</h2>
+
+    <input type="text" id="answer-input" placeholder="Digite o símbolo" />
+    <button onclick="checkAnswer()">Verificar</button>
+
+    <p id="result-message"></p>
+
+    <button onclick="nextQuestion()">Próxima Pergunta</button>
+  </div>
+
+  <script>
+const elements = [
+  { name: "Hidrogênio", symbol: "H" },
+  { name: "Oxigênio", symbol: "O" },
+  { name: "Carbono", symbol: "C" },
+  { name: "Nitrogênio", symbol: "N" },
+  { name: "Ferro", symbol: "Fe" },
+  { name: "Cálcio", symbol: "Ca" },
+  { name: "Sódio", symbol: "Na" },
+  { name: "Potássio", symbol: "K" },
+  { name: "Magnésio", symbol: "Mg" },
+  { name: "Cloro", symbol: "Cl" },
+  { name: "Cobre", symbol: "Cu" },
+  { name: "Rádio", symbol: "Ra" },
+  { name: "Alumínio", symbol: "Al" }
+];
+
+let currentElement = {};
+
+function nextQuestion() {
+  const index = Math.floor(Math.random() * elements.length);
+  currentElement = elements[index];
+
+  document.getElementById("element-name").textContent = currentElement.name;
+  document.getElementById("answer-input").value = "";
+  document.getElementById("result-message").textContent = "";
+}
+
+function checkAnswer() {
+  const input = document.getElementById("answer-input").value.trim();
+  const result = document.getElementById("result-message");
+
+  if (input.toLowerCase() === currentElement.symbol.toLowerCase()) {
+    result.textContent = "✅ Correto!";
+    result.style.color = "green";
+  } else {
+    result.textContent = `❌ Errado! A resposta certa é: ${currentElement.symbol}`;
+    result.style.color = "red";
+  }
+}
+
+// Carrega a primeira pergunta automaticamente
+window.onload = nextQuestion;
+</script>
 </body>
 </html>
