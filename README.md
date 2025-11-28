@@ -1,9 +1,9 @@
-<!doctype html>
+
 <html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Natureza Viva — Explorando o Mundo Natural</title>
+ 
   <meta name="description" content="Natureza Viva — artigos, fotografias e iniciativas de conservação. Descubra ecossistemas, espécies e como ajudar." />
   <link rel="icon" href="assets/icons/favicon.png" />
 </head>
